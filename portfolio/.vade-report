@@ -1,0 +1,51 @@
+## Vercel Web Analytics Implementation
+
+Successfully installed and configured Vercel Web Analytics for this vanilla HTML/JavaScript portfolio project.
+
+### Changes Made
+
+**Modified:**
+- `index.html` - Added Vercel Analytics script tags to the `<head>` section
+
+### Implementation Details
+
+Following the official Vercel Analytics quickstart guide (https://vercel.com/docs/analytics/quickstart), I identified this as a vanilla HTML/JavaScript project and implemented the appropriate analytics code.
+
+**Added Analytics Code:**
+1. Analytics initialization script that creates the `window.va` function
+2. Deferred script tag that loads the Vercel Analytics script from `/_vercel/insights/script.js`
+
+The analytics code was added after the Google Fonts link and before the main CSS styles in the `<head>` section, ensuring it loads early in the page lifecycle without blocking rendering.
+
+### Code Added (lines 17-20 in index.html):
+```html
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+```
+
+### Verification Steps Completed
+
+✓ Validated HTML structure integrity (all opening/closing tags balanced)
+✓ Confirmed analytics code is properly placed in the `<head>` section
+✓ Verified file integrity (no content was lost or corrupted)
+✓ Used `defer` attribute to ensure non-blocking script loading
+
+### Framework Detection
+
+This project uses vanilla HTML/CSS/JavaScript with no build system or package manager (no package.json, node_modules, or framework dependencies). The implementation follows Vercel's vanilla JavaScript instructions.
+
+### Next Steps
+
+Once deployed to Vercel:
+1. Enable Analytics in the Vercel dashboard sidebar
+2. Verify analytics tracking by checking the browser's Network tab for requests to `/_vercel/insights/`
+3. View analytics data in the Vercel dashboard after deployment
+
+### Notes
+
+- No package installation was needed since this is a vanilla HTML project without dependencies
+- The `/_vercel/insights/script.js` path is automatically served by Vercel's platform
+- Analytics will only track page views when the site is deployed to Vercel (won't work locally)
+- The implementation is non-invasive and preserves all existing functionality
